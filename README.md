@@ -186,7 +186,11 @@ orchestrate.sh "Perform security audit on authentication"
 
 ### What is Factory Link?
 
-`factory-link` is a convenience command that creates symlinks to all essential Factory droid system files in your current directory. This is perfect for setting up new projects or sharing droid configurations.
+`factory-link` is a convenience command that sets up essential Factory droid system files in your current directory. This is perfect for setting up new projects or sharing droid configurations.
+
+**What it does:**
+- **Copies** `droids/` and `orchestrator/` directories (for standalone, project-specific access)
+- **Creates symlinks** for `AGENTS.md` and `scripts/` (for centralized, always-up-to-date access)
 
 ### Usage
 
@@ -198,52 +202,64 @@ cd /path/to/your/project
 factory-link
 ```
 
-### What Gets Linked?
+### What Gets Set Up?
 
-When you run `factory-link`, it creates symlinks to:
+When you run `factory-link`, it:
 
+**Copies these directories** (independent, project-specific):
+- **droids/** - All 44 specialized droids (copied from `/Users/besi/.factory/droids`)
+- **orchestrator/** - Orchestrator system files (copied from `/Users/besi/.factory/orchestrator`)
+
+**Creates these symlinks** (always in sync with central system):
 - **AGENTS.md** → `/Users/besi/.codex/AGENTS.md` - Coding guidelines and rules
-- **droids/** → `/Users/besi/.factory/droids` - All 44 specialized droids
-- **orchestrator/** → `/Users/besi/.factory/orchestrator` - Orchestrator system files
-- **scripts/** → `/Users/besi/.factory/scripts` - Automation scripts
+- **scripts/** → `/Users/besi/.factory/scripts` - Automation scripts including orchestrate.sh
 
 ### Features
 
-- ✅ **Safe**: Checks if source files exist before creating links
-- ✅ **Smart**: Removes existing files/symlinks with the same name
+- ✅ **Hybrid Approach**: Copies droids/orchestrator for independence, symlinks others for updates
+- ✅ **Safe**: Checks if source files exist before setup
+- ✅ **Smart**: Removes existing files/directories with the same name
 - ✅ **Informative**: Provides detailed output showing what's happening
-- ✅ **Verified**: Confirms each symlink creation
+- ✅ **Verified**: Confirms each operation completion with file counts
 
 ### Example Output
 
 ```bash
 $ factory-link
-🔗 Creating symlinks in: /Users/besi/Code/my-project
-==================================
-📋 Checking source files...
+🚀 Setting up Factory system in: /Users/besi/Code/my-project
+================================================
+📋 Checking source files for symlinks...
 ✅ Found: /Users/besi/.codex/AGENTS.md
+✅ Found: /Users/besi/.factory/scripts
+
+📋 Checking source directories for copying...
 ✅ Found: /Users/besi/.factory/droids
 ✅ Found: /Users/besi/.factory/orchestrator
-✅ Found: /Users/besi/.factory/scripts
 
 🔗 Creating symlinks...
 🔗 Linking: AGENTS.md -> /Users/besi/.codex/AGENTS.md
-✅ Created: AGENTS.md
-🔗 Linking: droids -> /Users/besi/.factory/droids
-✅ Created: droids
-🔗 Linking: orchestrator -> /Users/besi/.factory/orchestrator
-✅ Created: orchestrator
+✅ Created symlink: AGENTS.md
 🔗 Linking: scripts -> /Users/besi/.factory/scripts
-✅ Created: scripts
+✅ Created symlink: scripts
 
-🎉 Symlink creation complete!
-📁 Created 4 symlinks in /Users/besi/Code/my-project
+📦 Copying directories...
+📦 Copying: droids
+✅ Copied: droids (43 files)
+📦 Copying: orchestrator
+✅ Copied: orchestrator (15 files)
 
-📋 Created symlinks:
-   AGENTS.md -> /Users/besi/.codex/AGENTS.md
-   droids -> /Users/besi/.factory/droids
-   orchestrator -> /Users/besi/.factory/orchestrator
-   scripts -> /Users/besi/.factory/scripts
+🎉 Setup complete!
+📁 Created 2 symlinks and copied 2 directories in /Users/besi/Code/my-project
+
+📋 Summary:
+
+Symlinks created:
+   🔗 AGENTS.md -> /Users/besi/.codex/AGENTS.md
+   🔗 scripts -> /Users/besi/.factory/scripts
+
+Directories copied:
+   📦 droids/ (43 files)
+   📦 orchestrator/ (15 files)
 ```
 
 ### Use Cases

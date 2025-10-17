@@ -2,7 +2,11 @@
 
 ## Overview
 
-`factory-link` is a command-line utility that creates symbolic links to all essential Factory droid system files in your current directory. This tool streamlines project setup by giving instant access to all droids, scripts, and configuration files.
+`factory-link` is a command-line utility that sets up essential Factory droid system files in your current directory. This tool streamlines project setup by giving instant access to all droids, scripts, and configuration files.
+
+**Hybrid Approach:**
+- **Copies** `droids/` and `orchestrator/` directories - giving your project standalone, customizable versions
+- **Creates symlinks** for `AGENTS.md` and `scripts/` - keeping them in sync with the central system
 
 ## Installation
 
@@ -49,16 +53,16 @@ factory-link
 
 The script will:
 
-1. **Check** if all source files exist
-2. **Remove** any existing files/symlinks with conflicting names
-3. **Create** symbolic links to:
+1. **Check** if all source files and directories exist
+2. **Remove** any existing files/directories with conflicting names
+3. **Create symbolic links** for:
    - `AGENTS.md` → Coding guidelines and AI agent rules
-   - `droids/` → All 44 specialized droid definitions
-   - `orchestrator/` → Orchestrator system configuration
    - `scripts/` → Automation scripts including orchestrate.sh
-
-4. **Verify** each symlink was created successfully
-5. **Report** a summary of created links
+4. **Copy directories** for:
+   - `droids/` → All 44 specialized droid definitions (43+ files)
+   - `orchestrator/` → Orchestrator system configuration (15+ files)
+5. **Verify** each operation was successful
+6. **Report** a summary with file counts
 
 ---
 
@@ -68,33 +72,59 @@ The script will:
 $ cd ~/Code/my-new-project
 $ factory-link
 
-🔗 Creating symlinks in: /Users/besi/Code/my-new-project
-==================================
-📋 Checking source files...
+🚀 Setting up Factory system in: /Users/besi/Code/my-new-project
+================================================
+📋 Checking source files for symlinks...
 ✅ Found: /Users/besi/.codex/AGENTS.md
+✅ Found: /Users/besi/.factory/scripts
+
+📋 Checking source directories for copying...
 ✅ Found: /Users/besi/.factory/droids
 ✅ Found: /Users/besi/.factory/orchestrator
-✅ Found: /Users/besi/.factory/scripts
 
 🔗 Creating symlinks...
 🔗 Linking: AGENTS.md -> /Users/besi/.codex/AGENTS.md
-✅ Created: AGENTS.md
-🔗 Linking: droids -> /Users/besi/.factory/droids
-✅ Created: droids
-🔗 Linking: orchestrator -> /Users/besi/.factory/orchestrator
-✅ Created: orchestrator
+✅ Created symlink: AGENTS.md
 🔗 Linking: scripts -> /Users/besi/.factory/scripts
-✅ Created: scripts
+✅ Created symlink: scripts
 
-🎉 Symlink creation complete!
-📁 Created 4 symlinks in /Users/besi/Code/my-new-project
+📦 Copying directories...
+📦 Copying: droids
+✅ Copied: droids (43 files)
+📦 Copying: orchestrator
+✅ Copied: orchestrator (15 files)
 
-📋 Created symlinks:
-   AGENTS.md -> /Users/besi/.codex/AGENTS.md
-   droids -> /Users/besi/.factory/droids
-   orchestrator -> /Users/besi/.factory/orchestrator
-   scripts -> /Users/besi/.factory/scripts
+🎉 Setup complete!
+📁 Created 2 symlinks and copied 2 directories in /Users/besi/Code/my-new-project
+
+📋 Summary:
+
+Symlinks created:
+   🔗 AGENTS.md -> /Users/besi/.codex/AGENTS.md
+   🔗 scripts -> /Users/besi/.factory/scripts
+
+Directories copied:
+   📦 droids/ (43 files)
+   📦 orchestrator/ (15 files)
 ```
+
+---
+
+## Why This Hybrid Approach?
+
+### Copies vs Symlinks
+
+**Why copy droids/ and orchestrator/?**
+- **Independence**: Your project has its own copy that won't be affected by changes in the central system
+- **Customization**: You can modify droids for project-specific needs without affecting other projects
+- **Safety**: No risk of circular dependencies or broken symlinks
+- **Performance**: Direct file access without symlink resolution overhead
+
+**Why symlink AGENTS.md and scripts/?**
+- **Central Updates**: Coding guidelines and scripts stay in sync across all projects
+- **Maintenance**: One central location to update rules and automation scripts
+- **Consistency**: All projects use the same latest versions
+- **Storage**: Saves disk space by not duplicating large files
 
 ---
 
@@ -161,15 +191,28 @@ factory-link
 
 ---
 
-## What Gets Linked?
+## What Gets Set Up?
 
-### AGENTS.md
+### AGENTS.md (Symlinked)
 - **Source**: `/Users/besi/.codex/AGENTS.md`
+- **Type**: Symlink
 - **Purpose**: Contains coding guidelines, rules, and AI agent behavior
 - **Use**: Referenced by AI assistants for consistent code generation
+- **Note**: Always in sync with central system for consistency
 
-### droids/
+### scripts/ (Symlinked)
+- **Source**: `/Users/besi/.factory/scripts`
+- **Type**: Symlink
+- **Purpose**: Automation scripts and utilities
+- **Use**: Command-line tools for common operations
+- **Contents**:
+  - `orchestrate.sh` - Main orchestrator script
+  - `create-factory-symlinks.sh` - This factory-link script
+- **Note**: Always in sync with central system for latest updates
+
+### droids/ (Copied)
 - **Source**: `/Users/besi/.factory/droids`
+- **Type**: Copy (43 files)
 - **Purpose**: Directory containing 44 specialized droid definitions
 - **Use**: Used by Factory CLI to execute specialized tasks
 - **Contents**:
@@ -178,9 +221,11 @@ factory-link
   - DevOps droids (Docker, Cloud, CI/CD)
   - Security droids (Auditor, Penetration Tester)
   - And 36 more...
+- **Note**: Independent copy allows project-specific customization
 
-### orchestrator/
+### orchestrator/ (Copied)
 - **Source**: `/Users/besi/.factory/orchestrator`
+- **Type**: Copy (15 files)
 - **Purpose**: Orchestrator system configuration and task patterns
 - **Use**: Powers the intelligent multi-droid coordination
 - **Contents**:
@@ -189,14 +234,7 @@ factory-link
   - Context management
   - Performance analytics
   - Plugin architecture
-
-### scripts/
-- **Source**: `/Users/besi/.factory/scripts`
-- **Purpose**: Automation scripts and utilities
-- **Use**: Command-line tools for common operations
-- **Contents**:
-  - `orchestrate.sh` - Main orchestrator script
-  - `create-factory-symlinks.sh` - This factory-link script
+- **Note**: Independent copy allows project-specific configuration
 
 ---
 

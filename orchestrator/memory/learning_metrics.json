@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-06-18",
+  "global_metrics": {
+    "total_projects": 0,
+    "successful_projects": 0,
+    "failed_projects": 0,
+    "success_rate": 0.0,
+    "average_project_duration": 0,
+    "most_used_patterns": [],
+    "most_common_technologies": [],
+    "learning_velocity": 0.0
+  },
+  "technology_metrics": {
+    "frontend": {
+      "react": {
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "common_patterns": [],
+        "common_issues": []
+      },
+      "vue": {
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "common_patterns": [],
+        "common_issues": []
+      },
+      "angular": {
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "common_patterns": [],
+        "common_issues": []
+      }
+    },
+    "backend": {
+      "express": {
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "common_patterns": [],
+        "common_issues": []
+      },
+      "fastapi": {
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "common_patterns": [],
+        "common_issues": []
+      },
+      "django": {
+        "usage_count": 0,
+        "success_rate": 0.0,
+        "common_patterns": [],
+        "common_issues": []
+      }
+    },
+    "databases": {
+      "mongodb": {
+        "usage_count": 0,
+        "success_rate": 0.0
+      },
+      "postgresql": {
+        "usage_count": 0,
+        "success_rate": 0.0
+      },
+      "mysql": {
+        "usage_count": 0,
+        "success_rate": 0.0
+      }
+    }
+  },
+  "pattern_effectiveness": {
+    "success_patterns": {},
+    "failure_patterns": {},
+    "pattern_combinations": {}
+  },
+  "project_insights": {
+    "optimal_team_size": {
+      "frontend": 1,
+      "backend": 1,
+      "fullstack": 2
+    },
+    "optimal_project_duration": {
+      "small": "1-3 days",
+      "medium": "1-2 weeks",
+      "large": "3-6 weeks"
+    },
+    "critical_success_factors": [
+      "Clear requirements",
+      "Proper architecture planning",
+      "Comprehensive testing",
+      "Regular code reviews",
+      "Good documentation"
+    ]
+  },
+  "learning_trends": {
+    "emerging_technologies": [],
+    "declining_technologies": [],
+    "stable_technologies": ["react", "express", "typescript"],
+    "skill_gaps": [],
+    "improvement_areas": []
+  },
+  "recommendations": {
+    "for_new_projects": [
+      "Start with proven patterns",
+      "Use TypeScript for type safety",
+      "Implement comprehensive testing",
+      "Follow modular architecture principles"
+    ],
+    "for_learning": [
+      "Focus on one technology stack at a time",
+      "Build small projects to practice patterns",
+      "Study both success and failure cases",
+      "Regularly update technical knowledge"
+    ],
+    "for_team_improvement": [
+      "Conduct regular code reviews",
+      "Share knowledge through documentation",
+      "Automate testing and deployment",
+      "Monitor and learn from failures"
+    ]
+  }
+}

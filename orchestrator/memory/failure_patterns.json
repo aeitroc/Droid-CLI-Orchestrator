@@ -1,0 +1,122 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-06-18",
+  "patterns": [
+    {
+      "id": "monolithic-component-pattern",
+      "name": "Monolithic Component Anti-Pattern",
+      "category": "frontend",
+      "description": "Large components with multiple responsibilities",
+      "failure_rate": 0.78,
+      "common_issues": [
+        "Components exceed 600 lines",
+        "Multiple responsibilities in single component",
+        "Difficult to test",
+        "Poor reusability"
+      ],
+      "warning_signs": [
+        "Component files > 500 lines",
+        "Multiple useEffect hooks for unrelated concerns",
+        "Prop drilling more than 2 levels",
+        "Mixed business logic and UI logic"
+      ],
+      "solutions": [
+        "Break into smaller components",
+        "Extract custom hooks",
+        "Use context or state management",
+        "Separate business logic into services"
+      ]
+    },
+    {
+      "id": "callback-hell-pattern",
+      "name": "Callback Hell Anti-Pattern",
+      "category": "backend",
+      "description": "Nested callbacks creating unreadable code",
+      "failure_rate": 0.85,
+      "common_issues": [
+        "Deeply nested callbacks",
+        "Error handling complexity",
+        "Difficult to debug",
+        "Poor code readability"
+      ],
+      "warning_signs": [
+        "More than 3 levels of callback nesting",
+        "Inconsistent error handling",
+        "Pyramid-shaped code structure"
+      ],
+      "solutions": [
+        "Use async/await",
+        "Implement promise chaining",
+        "Use utility functions for error handling",
+        "Consider async libraries like async.js"
+      ]
+    },
+    {
+      "id": "god-object-pattern",
+      "name": "God Object Anti-Pattern",
+      "category": "general",
+      "description": "Single object knowing too much about the system",
+      "failure_rate": 0.72,
+      "common_issues": [
+        "Objects with too many responsibilities",
+        "Tight coupling between components",
+        "Difficult to maintain and test",
+        "Single point of failure"
+      ],
+      "warning_signs": [
+        "Classes/modules > 1000 lines",
+        "More than 10 methods per class",
+        "Methods with many parameters",
+        "High cyclomatic complexity"
+      ],
+      "solutions": [
+        "Apply single responsibility principle",
+        "Extract smaller classes/modules",
+        "Use dependency injection",
+        "Implement interface segregation"
+      ]
+    },
+    {
+      "id": "hardcoded-configuration-pattern",
+      "name": "Hardcoded Configuration Anti-Pattern",
+      "category": "general",
+      "description": "Configuration values embedded in code",
+      "failure_rate": 0.68,
+      "common_issues": [
+        "Environment-specific values in code",
+        "Difficult deployment across environments",
+        "Security risks with sensitive data",
+        "Poor maintainability"
+      ],
+      "warning_signs": [
+        "Database URLs in source code",
+        "API keys embedded in files",
+        "Hardcoded file paths",
+        "Environment-specific logic"
+      ],
+      "solutions": [
+        "Use environment variables",
+        "Create configuration files",
+        "Implement secret management",
+        "Use different configs per environment"
+      ]
+    }
+  ],
+  "insights": {
+    "most_problematic_patterns": ["monolithic-component-pattern", "callback-hell-pattern"],
+    "common_failure_causes": [
+      "Lack of architectural planning",
+      "Rushing to implementation",
+      "Ignoring code organization",
+      "Poor separation of concerns",
+      "Inadequate testing"
+    ],
+    "prevention_strategies": [
+      "Start with architectural design",
+      "Implement code reviews",
+      "Use linting rules",
+      "Regular refactoring",
+      "Comprehensive testing"
+    ]
+  }
+}

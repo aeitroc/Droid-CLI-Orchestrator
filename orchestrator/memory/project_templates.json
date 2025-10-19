@@ -1,0 +1,187 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-06-18",
+  "templates": [
+    {
+      "id": "react-typescript-starter",
+      "name": "React TypeScript Starter",
+      "category": "frontend",
+      "description": "Modern React application with TypeScript and comprehensive tooling",
+      "success_rate": 0.94,
+      "complexity": "medium",
+      "estimated_setup_time": "15-30 minutes",
+      "tech_stack": {
+        "frontend": ["react", "typescript", "vite"],
+        "testing": ["jest", "@testing-library/react", "@testing-library/jest-dom"],
+        "styling": ["styled-components", "emotion"],
+        "linting": ["eslint", "prettier"],
+        "bundler": ["vite"]
+      },
+      "file_structure": {
+        "src/": {
+          "components/": "React components",
+          "hooks/": "Custom hooks",
+          "utils/": "Utility functions",
+          "types/": "TypeScript type definitions",
+          "styles/": "Global styles and themes",
+          "assets/": "Static assets",
+          "pages/": "Page components",
+          "services/": "API services"
+        },
+        "public/": "Static public files",
+        "tests/": "Test files"
+      },
+      "initial_commands": [
+        "npm create vite@latest project-name -- --template react-ts",
+        "cd project-name",
+        "npm install",
+        "npm install @types/styled-components styled-components",
+        "npm install -D @testing-library/react @testing-library/jest-dom jest"
+      ],
+      "common_extensions": [
+        "state management (redux, zustand)",
+        "routing (react-router)",
+        "form handling (react-hook-form)",
+        "data fetching (react-query, swr)"
+      ]
+    },
+    {
+      "id": "express-api-starter",
+      "name": "Express API Starter",
+      "category": "backend",
+      "description": "RESTful API with Express.js, TypeScript, and database integration",
+      "success_rate": 0.91,
+      "complexity": "medium",
+      "estimated_setup_time": "20-40 minutes",
+      "tech_stack": {
+        "backend": ["express", "typescript", "node.js"],
+        "database": ["mongodb", "mongoose"],
+        "validation": ["joi", "express-validator"],
+        "security": ["helmet", "cors", "bcrypt"],
+        "testing": ["jest", "supertest"],
+        "documentation": ["swagger-ui-express"]
+      },
+      "file_structure": {
+        "src/": {
+          "controllers/": "Request handlers",
+          "routes/": "API routes",
+          "models/": "Database models",
+          "middleware/": "Custom middleware",
+          "services/": "Business logic",
+          "utils/": "Utility functions",
+          "config/": "Configuration files",
+          "types/": "TypeScript definitions"
+        },
+        "tests/": "Test files",
+        "docs/": "API documentation"
+      },
+      "initial_commands": [
+        "npm init -y",
+        "npm install express mongoose helmet cors joi bcryptjs",
+        "npm install -D typescript @types/express @types/node @types/cors @types/bcryptjs nodemon",
+        "npm install -D jest @types/jest supertest @types/supertest",
+        "npx tsc --init"
+      ],
+      "common_extensions": [
+        "authentication (JWT, OAuth)",
+        "rate limiting",
+        "caching (redis)",
+        "message queues (bull, agenda)",
+        "monitoring (winston, morgan)"
+      ]
+    },
+    {
+      "id": "python-cli-tool",
+      "name": "Python CLI Tool",
+      "category": "cli",
+      "description": "Command-line tool with argument parsing and configuration management",
+      "success_rate": 0.87,
+      "complexity": "low",
+      "estimated_setup_time": "10-20 minutes",
+      "tech_stack": {
+        "language": ["python", "python3"],
+        "cli": ["argparse", "click"],
+        "configuration": ["configparser", "python-dotenv"],
+        "testing": ["pytest", "pytest-cov"],
+        "packaging": ["setuptools", "wheel"]
+      },
+      "file_structure": {
+        "src/": {
+          "commands/": "Command implementations",
+          "utils/": "Utility functions",
+          "config/": "Configuration handling",
+          "models/": "Data models"
+        },
+        "tests/": "Test files",
+        "docs/": "Documentation"
+      },
+      "initial_commands": [
+        "python -m venv venv",
+        "source venv/bin/activate  # On Windows: venv\\Scripts\\activate",
+        "pip install click python-dotenv",
+        "pip install -D pytest pytest-cov black flake8",
+        "pip install -D setuptools wheel build"
+      ],
+      "common_extensions": [
+        "database integration (sqlalchemy, pymongo)",
+        "API clients (requests, httpx)",
+        "logging configuration",
+        "progress bars (tqdm)",
+        "color output (rich, colorama)"
+      ]
+    },
+    {
+      "id": "next-fullstack-app",
+      "name": "Next.js Full-Stack Application",
+      "category": "fullstack",
+      "description": "Full-stack application with Next.js, API routes, and database",
+      "success_rate": 0.89,
+      "complexity": "high",
+      "estimated_setup_time": "30-60 minutes",
+      "tech_stack": {
+        "frontend": ["next.js", "react", "typescript"],
+        "backend": ["next.js api routes"],
+        "database": ["prisma", "postgresql"],
+        "authentication": ["next-auth"],
+        "styling": ["tailwindcss", "css-modules"],
+        "testing": ["jest", "@testing-library/react"]
+      },
+      "file_structure": {
+        "src/": {
+          "app/": "App router pages and layouts",
+          "components/": "React components",
+          "lib/": "Utility functions and configurations",
+          "hooks/": "Custom hooks",
+          "types/": "TypeScript definitions"
+        },
+        "prisma/": "Database schema and migrations",
+        "public/": "Static files",
+        "tests/": "Test files"
+      },
+      "initial_commands": [
+        "npx create-next-app@latest project-name --typescript --tailwind --eslint",
+        "cd project-name",
+        "npm install prisma @prisma/client next-auth",
+        "npm install -D @types/node",
+        "npx prisma init"
+      ],
+      "common_extensions": [
+        "state management (zustand, redux)",
+        "form handling (react-hook-form)",
+        "file uploads (next-upload)",
+        "email sending (nodemailer)",
+        "background jobs (bull)"
+      ]
+    }
+  ],
+  "insights": {
+    "most_popular_templates": ["react-typescript-starter", "next-fullstack-app"],
+    "recommended_for_beginners": ["react-typescript-starter", "python-cli-tool"],
+    "common_success_factors": [
+      "Clear project structure",
+      "Comprehensive tooling setup",
+      "Good TypeScript integration",
+      "Testing configuration included"
+    ]
+  }
+}

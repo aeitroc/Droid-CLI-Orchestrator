@@ -14,9 +14,6 @@ droids/deployment-specialist.md
 config.json
 mcp.json
 
-# Symlinks and local files
-AGENTS.md
-DROID.md
 
 # Implementation/phase documentation (keep only user-facing docs)
 docs/phase-2-complete.md
@@ -34,3 +31,5 @@ docs/droids-fixed-summary.md
 # IDE
 .vscode/
 .idea/
+scripts
+scripts/create-factory-symlinks.sh

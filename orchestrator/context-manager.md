@@ -444,12 +444,13 @@ function validateIntegrationReadiness(context: OrchestratorContext): {
 
 ## Implementation Notes
 
-### Context Persistence
+### Layer Snapshots & Context Persistence
 
 - Context is stored in `~/.factory/orchestrator/contexts/`
 - Each task gets its own context file: `[task_id].json`
-- Context is versioned after each phase completion
-- Historical context is retained for 7 days
+- Before each execution layer begins, persist a snapshot (e.g., `layer-<n>-context.json`).
+- Context is versioned after each layer completion.
+- Historical context is retained for 7 days.
 
 ### Context Recovery
 
